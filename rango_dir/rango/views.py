@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-	return HttpResponse("<a href = '/rango/about'>About</a> <br/> Rango says hello world")
+	context_dict = {'boldmessage': "I am bold font from the context"}
+	
+	return render(request, 'rango/index.html', context_dict)
 
 def about(request):
-	return HttpResponse("<a href = '/rango/'>Home</a><br/> This is about page")
+	context_dict = {'boldmessage': "Bold in about page"}
 
-# Create your views here.
+	return render(request, 'rango/about.html', context_dict)
+	
